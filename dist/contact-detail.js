@@ -54,7 +54,8 @@ System.register(["./web-api", "./app"], function (_export) {
           save: {
             value: function save() {
               var _this2 = this;
-              this.api.saveContact(this.contact).then(function () {
+              this.api.saveContact(this.contact).then(function (contact) {
+                _this2.contact = contact;
                 _this2.originalJSON = JSON.stringify(_this2.contact);
               });
             },

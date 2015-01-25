@@ -22,7 +22,8 @@ export class ContactDetail {
   }
 
   save(){
-    this.api.saveContact(this.contact).then(() => {
+    this.api.saveContact(this.contact).then(contact => {
+      this.contact = contact;
       this.originalJSON = JSON.stringify(this.contact);
     });
   }

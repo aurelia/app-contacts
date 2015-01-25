@@ -1,7 +1,13 @@
 System.register([], function (_export) {
   "use strict";
 
-  var _prototypeProperties, latency, contacts, WebAPI;
+  var _prototypeProperties, latency, id, contacts, WebAPI;
+
+
+  function getId() {
+    return ++id;
+  }
+
   return {
     setters: [],
     execute: function () {
@@ -11,32 +17,33 @@ System.register([], function (_export) {
       };
 
       latency = 500;
+      id = 0;
       contacts = [{
-        id: "1",
+        id: getId(),
         firstName: "John",
         lastName: "Tolkien",
         email: "tolkien@inklings.com",
         phoneNumber: "867-5309"
       }, {
-        id: "2",
+        id: getId(),
         firstName: "Clive",
         lastName: "Lewis",
         email: "lewis@inklings.com",
         phoneNumber: "867-5309"
       }, {
-        id: "3",
+        id: getId(),
         firstName: "Owen",
         lastName: "Barfield",
         email: "barfield@inklings.com",
         phoneNumber: "867-5309"
       }, {
-        id: "4",
+        id: getId(),
         firstName: "Charles",
         lastName: "Williams",
         email: "williams@inklings.com",
         phoneNumber: "867-5309"
       }, {
-        id: "5",
+        id: getId(),
         firstName: "Roger",
         lastName: "Green",
         email: "green@inklings.com",
@@ -76,7 +83,7 @@ System.register([], function (_export) {
               return new Promise(function (resolve) {
                 setTimeout(function () {
                   var found = contacts.filter(function (x) {
-                    return x.id === id;
+                    return x.id == id;
                   })[0];
                   resolve(JSON.parse(JSON.stringify(found)));
                   _this2.isRequesting = false;
@@ -95,18 +102,19 @@ System.register([], function (_export) {
                 setTimeout(function () {
                   var instance = JSON.parse(JSON.stringify(contact));
                   var found = contacts.filter(function (x) {
-                    return x.id === contact.id;
+                    return x.id == contact.id;
                   })[0];
 
                   if (found) {
                     var index = contacts.indexOf(found);
                     contacts[index] = instance;
                   } else {
+                    instance.id = getId();
                     contacts.push(instance);
                   }
 
                   _this3.isRequesting = false;
-                  resolve();
+                  resolve(instance);
                 }, latency);
               });
             },
