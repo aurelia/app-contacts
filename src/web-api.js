@@ -1,4 +1,4 @@
-var latency = 500;
+var latency = 300;
 var id = 0;
 
 function getId(){
