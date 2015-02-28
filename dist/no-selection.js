@@ -1,19 +1,21 @@
 System.register(["./app"], function (_export) {
-  "use strict";
+  var App, _prototypeProperties, _classCallCheck, NoSelection;
 
-  var App, _prototypeProperties, NoSelection;
   return {
     setters: [function (_app) {
       App = _app.App;
     }],
     execute: function () {
-      _prototypeProperties = function (child, staticProps, instanceProps) {
-        if (staticProps) Object.defineProperties(child, staticProps);
-        if (instanceProps) Object.defineProperties(child.prototype, instanceProps);
-      };
+      "use strict";
 
-      NoSelection = (function () {
+      _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
+
+      _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+
+      NoSelection = _export("NoSelection", (function () {
         function NoSelection(app) {
+          _classCallCheck(this, NoSelection);
+
           this.app = app;
         }
 
@@ -23,7 +25,6 @@ System.register(["./app"], function (_export) {
               return [App];
             },
             writable: true,
-            enumerable: true,
             configurable: true
           }
         }, {
@@ -32,15 +33,13 @@ System.register(["./app"], function (_export) {
               this.app.selectedId = null;
             },
             writable: true,
-            enumerable: true,
             configurable: true
           }
         });
 
         return NoSelection;
-      })();
-      _export("NoSelection", NoSelection);
+      })());
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5vLXNlbGVjdGlvbi5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxHQUFHLHdCQUVFLFdBQVc7OztBQUZoQixTQUFHLFFBQUgsR0FBRzs7Ozs7Ozs7QUFFRSxpQkFBVztBQUVYLGlCQUZBLFdBQVcsQ0FFVixHQUFHLEVBQUM7QUFDZCxjQUFJLENBQUMsR0FBRyxHQUFHLEdBQUcsQ0FBQztTQUNoQjs7NkJBSlUsV0FBVztBQUNmLGdCQUFNO21CQUFBLGtCQUFFO0FBQUUscUJBQU8sQ0FBQyxHQUFHLENBQUMsQ0FBQzthQUFFOzs7Ozs7QUFLaEMsa0JBQVE7bUJBQUEsb0JBQUU7QUFDUixrQkFBSSxDQUFDLEdBQUcsQ0FBQyxVQUFVLEdBQUcsSUFBSSxDQUFDO2FBQzVCOzs7Ozs7O2VBUlUsV0FBVzs7NkJBQVgsV0FBVyIsImZpbGUiOiJuby1zZWxlY3Rpb24uanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5vLXNlbGVjdGlvbi5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO01BQVEsR0FBRyx5Q0FFRSxXQUFXOzs7O0FBRmhCLFNBQUcsUUFBSCxHQUFHOzs7Ozs7Ozs7QUFFRSxpQkFBVztBQUVYLGlCQUZBLFdBQVcsQ0FFVixHQUFHO2dDQUZKLFdBQVc7O0FBR3BCLGNBQUksQ0FBQyxHQUFHLEdBQUcsR0FBRyxDQUFDO1NBQ2hCOzs2QkFKVSxXQUFXO0FBQ2YsZ0JBQU07bUJBQUEsa0JBQUU7QUFBRSxxQkFBTyxDQUFDLEdBQUcsQ0FBQyxDQUFDO2FBQUU7Ozs7O0FBS2hDLGtCQUFRO21CQUFBLG9CQUFFO0FBQ1Isa0JBQUksQ0FBQyxHQUFHLENBQUMsVUFBVSxHQUFHLElBQUksQ0FBQzthQUM1Qjs7Ozs7O2VBUlUsV0FBVyIsImZpbGUiOiJuby1zZWxlY3Rpb24uanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==
