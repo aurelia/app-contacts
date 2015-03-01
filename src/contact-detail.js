@@ -25,6 +25,10 @@ export class ContactDetail {
     this.api.saveContact(this.contact).then(contact => {
       this.contact = contact;
       this.originalJSON = JSON.stringify(this.contact);
+
+      // update list
+      var listContact = this.app.contacts.find( (c) => { return c.id === this.contact.id; });
+      Object.assign(listContact, this.contact);
     });
   }
 
