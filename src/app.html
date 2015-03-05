@@ -11,9 +11,8 @@
     </div>
   </nav>
 
-  <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
-
   <div class="page-host">
+    <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
     <contact-list></contact-list>
     <router-view></router-view>
   </div>
