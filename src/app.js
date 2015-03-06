@@ -6,6 +6,7 @@ export class App {
   constructor(router, api) {
     this.router = router;
     this.api = api;
+    this.latency = null;
 
     this.router.configure(config => {
       config.title = 'Contacts';

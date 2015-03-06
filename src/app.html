@@ -9,11 +9,16 @@
         <span>Contacts</span>
       </a>
     </div>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Latency" value.bind="latency">
+        </div>
+      </form>
   </nav>
 
   <div class="page-host">
     <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
-    <contact-list></contact-list>
+    <contact-list latency.bind="latency"></contact-list>
     <router-view></router-view>
   </div>
 </template>
