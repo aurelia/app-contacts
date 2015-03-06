@@ -44,6 +44,9 @@ var contacts = [
 ];
 
 export class WebAPI {
+  constructor() {
+    this.latency = null;
+  }
   getContactList(){
     this.isRequesting = true;
     return new Promise(resolve => {
@@ -56,7 +59,7 @@ export class WebAPI {
         }});
         resolve(results);
         this.isRequesting = false;
-      }, latency);
+      }, this.latency || latency);
     });
   }
 
@@ -67,7 +70,7 @@ export class WebAPI {
         let found = contacts.filter(x => x.id == id)[0];
         resolve(JSON.parse(JSON.stringify(found)));
         this.isRequesting = false;
-      }, latency);
+      }, this.latency || latency);
     });
   }
 
@@ -88,7 +91,7 @@ export class WebAPI {
 
         this.isRequesting = false;
         resolve(instance);
-      }, latency);
+      }, this.latency || latency);
     });
   }
 }
