@@ -2,6 +2,7 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import {WebAPI} from './web-api';
 import {App} from './app';
 import {ContactUpdated,ContactViewed} from './messages';
+import {areEqual} from './utility';
 
 export class ContactDetail {
   static inject() { return [App,WebAPI,EventAggregator]; }
@@ -15,7 +16,7 @@ export class ContactDetail {
     return this.api.getContactDetails(params.id).then(contact => {
       this.contact = contact;
       config.navModel.title = contact.firstName;
-      this.originalJSON = JSON.stringify(contact);
+      this.originalContact = JSON.parse(JSON.stringify(contact));
       this.ea.publish(new ContactViewed(contact));
     });
   }
@@ -33,7 +34,7 @@ export class ContactDetail {
   }
 
   canDeactivate(){
-    if(this.originalJSON != JSON.stringify(this.contact)){
+    if(!areEqual(this.originalContact, JSON.parse(JSON.stringify(this.contact)))){
       let result = confirm('You have unsaved changes. Are you sure you wish to leave?');
 
       if(!result){
