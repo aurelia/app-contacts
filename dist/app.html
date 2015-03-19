@@ -1,5 +1,6 @@
 <template>
   <import from="./loading-indicator"></import>
+  <import from="./contact-list"></import>
 
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-header">
@@ -10,20 +11,9 @@
     </div>
   </nav>
 
-  <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
-
   <div class="page-host">
-    <div class="contact-list">
-      <ul class="list-group">
-        <li repeat.for="contact of contacts" class="list-group-item ${contact.id === $parent.selectedId ? 'active' : ''}">
-          <a href="#" click.delegate="$parent.select(contact)">
-            <h4 class="list-group-item-heading">${contact.firstName} ${contact.lastName}</h4>
-            <p class="list-group-item-text">${contact.email}</p>
-          </a>
-        </li>
-      </ul>
-    </div>
-
+    <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
+    <contact-list></contact-list>
     <router-view></router-view>
   </div>
 </template>

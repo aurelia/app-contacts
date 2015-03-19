@@ -1,5 +1,5 @@
 System.register(["nprogress", "aurelia-framework"], function (_export) {
-  var nprogress, Behavior, _prototypeProperties, _classCallCheck, LoadingIndicator;
+  var nprogress, Behavior, _createClass, _classCallCheck, LoadingIndicator;
 
   return {
     setters: [function (_nprogress) {
@@ -10,7 +10,7 @@ System.register(["nprogress", "aurelia-framework"], function (_export) {
     execute: function () {
       "use strict";
 
-      _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
+      _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
@@ -19,15 +19,7 @@ System.register(["nprogress", "aurelia-framework"], function (_export) {
           _classCallCheck(this, LoadingIndicator);
         }
 
-        _prototypeProperties(LoadingIndicator, {
-          metadata: {
-            value: function metadata() {
-              return Behavior.customElement("loading-indicator").withProperty("loading").noView();
-            },
-            writable: true,
-            configurable: true
-          }
-        }, {
+        _createClass(LoadingIndicator, {
           loadingChanged: {
             value: function loadingChanged(newValue) {
               if (newValue) {
@@ -35,9 +27,13 @@ System.register(["nprogress", "aurelia-framework"], function (_export) {
               } else {
                 nprogress.done();
               }
-            },
-            writable: true,
-            configurable: true
+            }
+          }
+        }, {
+          metadata: {
+            value: function metadata() {
+              return Behavior.customElement("loading-indicator").withProperty("loading").noView();
+            }
           }
         });
 
@@ -46,4 +42,4 @@ System.register(["nprogress", "aurelia-framework"], function (_export) {
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxvYWRpbmctaW5kaWNhdG9yLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7TUFBTyxTQUFTLEVBQ1IsUUFBUSx5Q0FFSCxnQkFBZ0I7Ozs7QUFIdEIsZUFBUzs7QUFDUixjQUFRLHFCQUFSLFFBQVE7Ozs7Ozs7OztBQUVILHNCQUFnQjtpQkFBaEIsZ0JBQWdCO2dDQUFoQixnQkFBZ0I7Ozs2QkFBaEIsZ0JBQWdCO0FBQ3BCLGtCQUFRO21CQUFBLG9CQUFFO0FBQ2YscUJBQU8sUUFBUSxDQUNaLGFBQWEsQ0FBQyxtQkFBbUIsQ0FBQyxDQUNsQyxZQUFZLENBQUMsU0FBUyxDQUFDLENBQ3ZCLE1BQU0sRUFBRSxDQUFDO2FBQ2I7Ozs7O0FBRUQsd0JBQWM7bUJBQUEsd0JBQUMsUUFBUSxFQUFDO0FBQ3RCLGtCQUFHLFFBQVEsRUFBQztBQUNWLHlCQUFTLENBQUMsS0FBSyxFQUFFLENBQUM7ZUFDbkIsTUFBSTtBQUNILHlCQUFTLENBQUMsSUFBSSxFQUFFLENBQUM7ZUFDbEI7YUFDRjs7Ozs7O2VBZFUsZ0JBQWdCIiwiZmlsZSI6ImxvYWRpbmctaW5kaWNhdG9yLmpzIiwic291cmNlUm9vdCI6Ii9zcmMvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxvYWRpbmctaW5kaWNhdG9yLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7TUFBTyxTQUFTLEVBQ1IsUUFBUSxpQ0FFSCxnQkFBZ0I7Ozs7QUFIdEIsZUFBUzs7QUFDUixjQUFRLHFCQUFSLFFBQVE7Ozs7Ozs7OztBQUVILHNCQUFnQjtpQkFBaEIsZ0JBQWdCO2dDQUFoQixnQkFBZ0I7OztxQkFBaEIsZ0JBQWdCO0FBUTNCLHdCQUFjO21CQUFBLHdCQUFDLFFBQVEsRUFBQztBQUN0QixrQkFBRyxRQUFRLEVBQUM7QUFDVix5QkFBUyxDQUFDLEtBQUssRUFBRSxDQUFDO2VBQ25CLE1BQUk7QUFDSCx5QkFBUyxDQUFDLElBQUksRUFBRSxDQUFDO2VBQ2xCO2FBQ0Y7OztBQWJNLGtCQUFRO21CQUFBLG9CQUFFO0FBQ2YscUJBQU8sUUFBUSxDQUNaLGFBQWEsQ0FBQyxtQkFBbUIsQ0FBQyxDQUNsQyxZQUFZLENBQUMsU0FBUyxDQUFDLENBQ3ZCLE1BQU0sRUFBRSxDQUFDO2FBQ2I7Ozs7ZUFOVSxnQkFBZ0IiLCJmaWxlIjoibG9hZGluZy1pbmRpY2F0b3IuanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==
