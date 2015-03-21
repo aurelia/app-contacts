@@ -1,11 +1,11 @@
-var latency = 300;
-var id = 0;
+let latency = 300;
+let id = 0;
 
 function getId(){
   return ++id;
 }
 
-var contacts = [
+let contacts = [
   {
     id:getId(),
     firstName:'John',
@@ -48,7 +48,7 @@ export class WebAPI {
     this.isRequesting = true;
     return new Promise(resolve => {
       setTimeout(() => {
-        var results = contacts.map(x =>  { return {
+        let results = contacts.map(x =>  { return {
           id:x.id,
           firstName:x.firstName,
           lastName:x.lastName,
@@ -75,7 +75,7 @@ export class WebAPI {
     this.isRequesting = true;
     return new Promise(resolve => {
       setTimeout(() => {
-        var instance = JSON.parse(JSON.stringify(contact));
+        let instance = JSON.parse(JSON.stringify(contact));
         let found = contacts.filter(x => x.id == contact.id)[0];
 
         if(found){

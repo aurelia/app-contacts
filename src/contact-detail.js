@@ -28,13 +28,13 @@ export class ContactDetail {
   save(){
     this.api.saveContact(this.contact).then(contact => {
       this.contact = contact;
-      this.originalJSON = JSON.stringify(this.contact);
+      this.originalContact = JSON.parse(JSON.stringify(contact));
       this.ea.publish(new ContactUpdated(this.contact));
     });
   }
 
   canDeactivate(){
-    if(!areEqual(this.originalContact, JSON.parse(JSON.stringify(this.contact)))){
+    if(!areEqual(this.originalContact, this.contact)){
       let result = confirm('You have unsaved changes. Are you sure you wish to leave?');
 
       if(!result){

@@ -50,7 +50,7 @@
       "bootstrap": "^3.3.1",
       "css": "^0.1.0",
       "font-awesome": "^4.2.0",
-      "nprogress": "^0.1.6"
+      "nprogress": "github:rstacruz/nprogress@^0.1.6"
     }
   }
 }
