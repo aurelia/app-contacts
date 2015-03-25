@@ -47,9 +47,10 @@
   "jspm": {
     "dependencies": {
       "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.9.5",
-      "bootstrap": "^3.3.1",
-      "css": "^0.1.0",
-      "font-awesome": "^4.2.0",
+      "aurelia-validation": "github:aurelia/validation@^0.1.1",
+      "bootstrap": "github:twbs/bootstrap@^3.3.1",
+      "css": "github:systemjs/plugin-css@^0.1.0",
+      "font-awesome": "npm:font-awesome@^4.2.0",
       "nprogress": "github:rstacruz/nprogress@^0.1.6"
     }
   }
