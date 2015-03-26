@@ -46,7 +46,7 @@
   },
   "jspm": {
     "dependencies": {
-      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.9.5",
+      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.10.0",
       "bootstrap": "^3.3.1",
       "css": "^0.1.0",
       "font-awesome": "^4.2.0",
