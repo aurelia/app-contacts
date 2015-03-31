@@ -1,6 +1,6 @@
 System.config({
   "paths": {
-    "*": "dist/*.js",
+    "*": "*.js",
     "app-contacts/*": "lib/*.js",
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js"
