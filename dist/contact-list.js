@@ -1,8 +1,10 @@
-System.register(["aurelia-event-aggregator", "./web-api", "./messages"], function (_export) {
-  var EventAggregator, WebAPI, ContactUpdated, ContactViewed, _prototypeProperties, _classCallCheck, ContactList;
+System.register(['aurelia-framework', 'aurelia-event-aggregator', './web-api', './messages'], function (_export) {
+  var inject, EventAggregator, WebAPI, ContactUpdated, ContactViewed, _classCallCheck, _createClass, ContactList;
 
   return {
-    setters: [function (_aureliaEventAggregator) {
+    setters: [function (_aureliaFramework) {
+      inject = _aureliaFramework.inject;
+    }, function (_aureliaEventAggregator) {
       EventAggregator = _aureliaEventAggregator.EventAggregator;
     }, function (_webApi) {
       WebAPI = _webApi.WebAPI;
@@ -11,13 +13,13 @@ System.register(["aurelia-event-aggregator", "./web-api", "./messages"], functio
       ContactViewed = _messages.ContactViewed;
     }],
     execute: function () {
-      "use strict";
+      'use strict';
 
-      _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
+      _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
 
-      _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+      _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-      ContactList = _export("ContactList", (function () {
+      ContactList = (function () {
         function ContactList(api, ea) {
           var _this = this;
 
@@ -38,39 +40,30 @@ System.register(["aurelia-event-aggregator", "./web-api", "./messages"], functio
           });
         }
 
-        _prototypeProperties(ContactList, {
-          inject: {
-            value: function inject() {
-              return [WebAPI, EventAggregator];
-            },
-            writable: true,
-            configurable: true
+        _createClass(ContactList, [{
+          key: 'created',
+          value: function created() {
+            var _this2 = this;
+
+            this.api.getContactList().then(function (contacts) {
+              _this2.contacts = contacts;
+            });
           }
         }, {
-          created: {
-            value: function created() {
-              var _this = this;
-
-              this.api.getContactList().then(function (contacts) {
-                _this.contacts = contacts;
-              });
-            },
-            writable: true,
-            configurable: true
-          },
-          select: {
-            value: function select(contact) {
-              this.selectedId = contact.id;
-              return true;
-            },
-            writable: true,
-            configurable: true
+          key: 'select',
+          value: function select(contact) {
+            this.selectedId = contact.id;
+            return true;
           }
-        });
+        }]);
+
+        _export('ContactList', ContactList = inject(WebAPI, EventAggregator)(ContactList) || ContactList);
 
         return ContactList;
-      })());
+      })();
+
+      _export('ContactList', ContactList);
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbnRhY3QtbGlzdC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO01BQVEsZUFBZSxFQUNmLE1BQU0sRUFDTixjQUFjLEVBQUUsYUFBYSx5Q0FFeEIsV0FBVzs7OztBQUpoQixxQkFBZSwyQkFBZixlQUFlOztBQUNmLFlBQU0sV0FBTixNQUFNOztBQUNOLG9CQUFjLGFBQWQsY0FBYztBQUFFLG1CQUFhLGFBQWIsYUFBYTs7Ozs7Ozs7O0FBRXhCLGlCQUFXO0FBRVgsaUJBRkEsV0FBVyxDQUVWLEdBQUcsRUFBQyxFQUFFOzs7Z0NBRlAsV0FBVzs7QUFHcEIsY0FBSSxDQUFDLEdBQUcsR0FBRyxHQUFHLENBQUM7QUFDZixjQUFJLENBQUMsUUFBUSxHQUFHLEVBQUUsQ0FBQzs7QUFFbkIsWUFBRSxDQUFDLFNBQVMsQ0FBQyxhQUFhLEVBQUUsVUFBQSxHQUFHO21CQUFJLE1BQUssTUFBTSxDQUFDLEdBQUcsQ0FBQyxPQUFPLENBQUM7V0FBQSxDQUFDLENBQUM7QUFDN0QsWUFBRSxDQUFDLFNBQVMsQ0FBQyxjQUFjLEVBQUUsVUFBQSxHQUFHLEVBQUk7QUFDbEMsZ0JBQUksRUFBRSxHQUFHLEdBQUcsQ0FBQyxPQUFPLENBQUMsRUFBRSxDQUFDO0FBQ3hCLGdCQUFJLEtBQUssR0FBRyxNQUFLLFFBQVEsQ0FBQyxNQUFNLENBQUMsVUFBQSxDQUFDO3FCQUFJLENBQUMsQ0FBQyxFQUFFLElBQUksRUFBRTthQUFBLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQztBQUNyRCxrQkFBTSxDQUFDLE1BQU0sQ0FBQyxLQUFLLEVBQUUsR0FBRyxDQUFDLE9BQU8sQ0FBQyxDQUFDO1dBQ25DLENBQUMsQ0FBQztTQUNKOzs2QkFaVSxXQUFXO0FBQ2YsZ0JBQU07bUJBQUEsa0JBQUc7QUFBRSxxQkFBTyxDQUFDLE1BQU0sRUFBQyxlQUFlLENBQUMsQ0FBQzthQUFFOzs7OztBQWFwRCxpQkFBTzttQkFBQSxtQkFBRTs7O0FBQ1Asa0JBQUksQ0FBQyxHQUFHLENBQUMsY0FBYyxFQUFFLENBQUMsSUFBSSxDQUFDLFVBQUEsUUFBUSxFQUFJO0FBQ3pDLHNCQUFLLFFBQVEsR0FBRyxRQUFRLENBQUM7ZUFDMUIsQ0FBQyxDQUFDO2FBQ0o7Ozs7QUFFRCxnQkFBTTttQkFBQSxnQkFBQyxPQUFPLEVBQUM7QUFDYixrQkFBSSxDQUFDLFVBQVUsR0FBRyxPQUFPLENBQUMsRUFBRSxDQUFDO0FBQzdCLHFCQUFPLElBQUksQ0FBQzthQUNiOzs7Ozs7ZUF2QlUsV0FBVyIsImZpbGUiOiJjb250YWN0LWxpc3QuanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbnRhY3QtbGlzdC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO3FHQU1hLFdBQVc7Ozs7aUNBTmhCLE1BQU07O2dEQUNOLGVBQWU7O3VCQUNmLE1BQU07O2lDQUNOLGNBQWM7Z0NBQUUsYUFBYTs7Ozs7Ozs7O0FBR3hCLGlCQUFXO0FBQ1gsaUJBREEsV0FBVyxDQUNWLEdBQUcsRUFBRSxFQUFFLEVBQUM7OztnQ0FEVCxXQUFXOztBQUVwQixjQUFJLENBQUMsR0FBRyxHQUFHLEdBQUcsQ0FBQztBQUNmLGNBQUksQ0FBQyxRQUFRLEdBQUcsRUFBRSxDQUFDOztBQUVuQixZQUFFLENBQUMsU0FBUyxDQUFDLGFBQWEsRUFBRSxVQUFBLEdBQUc7bUJBQUksTUFBSyxNQUFNLENBQUMsR0FBRyxDQUFDLE9BQU8sQ0FBQztXQUFBLENBQUMsQ0FBQztBQUM3RCxZQUFFLENBQUMsU0FBUyxDQUFDLGNBQWMsRUFBRSxVQUFBLEdBQUcsRUFBSTtBQUNsQyxnQkFBSSxFQUFFLEdBQUcsR0FBRyxDQUFDLE9BQU8sQ0FBQyxFQUFFLENBQUM7QUFDeEIsZ0JBQUksS0FBSyxHQUFHLE1BQUssUUFBUSxDQUFDLE1BQU0sQ0FBQyxVQUFBLENBQUM7cUJBQUksQ0FBQyxDQUFDLEVBQUUsSUFBSSxFQUFFO2FBQUEsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO0FBQ3JELGtCQUFNLENBQUMsTUFBTSxDQUFDLEtBQUssRUFBRSxHQUFHLENBQUMsT0FBTyxDQUFDLENBQUM7V0FDbkMsQ0FBQyxDQUFDO1NBQ0o7O3FCQVhVLFdBQVc7O2lCQWFmLG1CQUFFOzs7QUFDUCxnQkFBSSxDQUFDLEdBQUcsQ0FBQyxjQUFjLEVBQUUsQ0FBQyxJQUFJLENBQUMsVUFBQSxRQUFRLEVBQUk7QUFDekMscUJBQUssUUFBUSxHQUFHLFFBQVEsQ0FBQzthQUMxQixDQUFDLENBQUM7V0FDSjs7O2lCQUVLLGdCQUFDLE9BQU8sRUFBQztBQUNiLGdCQUFJLENBQUMsVUFBVSxHQUFHLE9BQU8sQ0FBQyxFQUFFLENBQUM7QUFDN0IsbUJBQU8sSUFBSSxDQUFDO1dBQ2I7OzsrQkF0QlUsV0FBVyxHQUR2QixNQUFNLENBQUMsTUFBTSxFQUFFLGVBQWUsQ0FBQyxDQUNuQixXQUFXLEtBQVgsV0FBVzs7ZUFBWCxXQUFXOzs7NkJBQVgsV0FBVyIsImZpbGUiOiJjb250YWN0LWxpc3QuanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==

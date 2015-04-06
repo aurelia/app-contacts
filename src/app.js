@@ -1,8 +1,9 @@
+import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {WebAPI} from './web-api';
 
+@inject(Router, WebAPI)
 export class App {
-  static inject() { return [Router,WebAPI]; }
   constructor(router, api) {
     this.router = router;
     this.api = api;

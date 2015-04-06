@@ -1,14 +1,9 @@
 import nprogress from 'nprogress';
-import {Behavior} from 'aurelia-framework';
+import {bindableProperty, noView} from 'aurelia-framework';
 
+@bindableProperty('loading')
+@noView
 export class LoadingIndicator {
-  static metadata(){
-    return Behavior
-      .customElement('loading-indicator')
-      .withProperty('loading')
-      .noView();
-  };
-
   loadingChanged(newValue){
     if(newValue){
       nprogress.start();
