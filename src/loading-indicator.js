@@ -1,9 +1,10 @@
 import nprogress from 'nprogress';
-import {bindableProperty, noView} from 'aurelia-framework';
+import {bindable, noView} from 'aurelia-framework';
 
-@bindableProperty('loading')
 @noView
 export class LoadingIndicator {
+  @bindable loading = false;
+
   loadingChanged(newValue){
     if(newValue){
       nprogress.start();
