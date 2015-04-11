@@ -1,14 +1,11 @@
-import {inject} from 'aurelia-framework';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {WebAPI} from './web-api';
-import {App} from './app';
 import {ContactUpdated,ContactViewed} from './messages';
 import {areEqual} from './utility';
 
-@inject(App, WebAPI, EventAggregator)
 export class ContactDetail {
-  constructor(app, api, ea){
-    this.app = app;
+  static inject = [WebAPI, EventAggregator];
+  constructor(api, ea){
     this.api = api;
     this.ea = ea;
   }
