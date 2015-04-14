@@ -1,7 +1,11 @@
 <template>
   <div class="contact-list">
     <ul class="list-group">
-      <li repeat.for="contact of contacts" class="list-group-item ${contact.id === $parent.selectedId ? 'active' : ''}">
+      <li>
+        <h4>Filter list:</h4>
+        <input type="text" class="form-control well" value.bind="listFilter"/>
+      </li>
+      <li repeat.for="contact of contacts | filter: listFilter" class="list-group-item ${contact.id === $parent.selectedId ? 'active' : ''}">
         <a href="#/contacts/${contact.id}" click.delegate="$parent.select(contact)">
           <h4 class="list-group-item-heading">${contact.firstName} ${contact.lastName}</h4>
           <p class="list-group-item-text">${contact.email}</p>

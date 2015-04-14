@@ -8,6 +8,8 @@ export class ContactList {
     this.api = api;
     this.contacts = [];
 
+    this.listFilter = '';
+
     ea.subscribe(ContactViewed, msg => this.select(msg.contact));
     ea.subscribe(ContactUpdated, msg => {
       let id = msg.contact.id;
@@ -25,5 +27,19 @@ export class ContactList {
   select(contact){
     this.selectedId = contact.id;
     return true;
+  }
+}
+
+export class FilterValueConverter {
+  toView(listData, value) {
+    if(value === undefined || value === '') {
+      return listData;
+    } else {
+      let searchText = value.toLowerCase();
+      return listData.filter( (c) => {
+        return c.firstName.toLowerCase().indexOf(searchText) > -1 ||
+               c.lastName.toLowerCase().indexOf(searchText) > -1;
+      })
+    }
   }
 }
