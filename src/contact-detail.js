@@ -10,10 +10,10 @@ export class ContactDetail {
     this.ea = ea;
   }
 
-  activate(params, qs, config){
+  activate(params, config){
     return this.api.getContactDetails(params.id).then(contact => {
       this.contact = contact;
-      config.navModel.title = contact.firstName;
+      config.navModel.setTitle(contact.firstName);
       this.originalContact = JSON.parse(JSON.stringify(contact));
       this.ea.publish(new ContactViewed(contact));
     });
