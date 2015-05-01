@@ -1,15 +1,11 @@
-System.register(['aurelia-framework', 'aurelia-event-aggregator', './web-api', './app', './messages', './utility'], function (_export) {
-  var inject, EventAggregator, WebAPI, App, ContactUpdated, ContactViewed, areEqual, _classCallCheck, _createClass, ContactDetail;
+System.register(['aurelia-event-aggregator', './web-api', './messages', './utility'], function (_export) {
+  var EventAggregator, WebAPI, ContactUpdated, ContactViewed, areEqual, _classCallCheck, _createClass, ContactDetail;
 
   return {
-    setters: [function (_aureliaFramework) {
-      inject = _aureliaFramework.inject;
-    }, function (_aureliaEventAggregator) {
+    setters: [function (_aureliaEventAggregator) {
       EventAggregator = _aureliaEventAggregator.EventAggregator;
     }, function (_webApi) {
       WebAPI = _webApi.WebAPI;
-    }, function (_app) {
-      App = _app.App;
     }, function (_messages) {
       ContactUpdated = _messages.ContactUpdated;
       ContactViewed = _messages.ContactViewed;
@@ -24,22 +20,21 @@ System.register(['aurelia-framework', 'aurelia-event-aggregator', './web-api', '
       _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
       ContactDetail = (function () {
-        function ContactDetail(app, api, ea) {
+        function ContactDetail(api, ea) {
           _classCallCheck(this, ContactDetail);
 
-          this.app = app;
           this.api = api;
           this.ea = ea;
         }
 
         _createClass(ContactDetail, [{
           key: 'activate',
-          value: function activate(params, qs, config) {
+          value: function activate(params, config) {
             var _this = this;
 
             return this.api.getContactDetails(params.id).then(function (contact) {
               _this.contact = contact;
-              config.navModel.title = contact.firstName;
+              config.navModel.setTitle(contact.firstName);
               _this.originalContact = JSON.parse(JSON.stringify(contact));
               _this.ea.publish(new ContactViewed(contact));
             });
@@ -75,9 +70,11 @@ System.register(['aurelia-framework', 'aurelia-event-aggregator', './web-api', '
 
             return true;
           }
+        }], [{
+          key: 'inject',
+          value: [WebAPI, EventAggregator],
+          enumerable: true
         }]);
-
-        _export('ContactDetail', ContactDetail = inject(App, WebAPI, EventAggregator)(ContactDetail) || ContactDetail);
 
         return ContactDetail;
       })();
@@ -86,4 +83,4 @@ System.register(['aurelia-framework', 'aurelia-event-aggregator', './web-api', '
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbnRhY3QtZGV0YWlsLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7b0hBUWEsYUFBYTs7OztpQ0FSbEIsTUFBTTs7Z0RBQ04sZUFBZTs7dUJBQ2YsTUFBTTs7aUJBQ04sR0FBRzs7aUNBQ0gsY0FBYztnQ0FBQyxhQUFhOzswQkFDNUIsUUFBUTs7Ozs7Ozs7O0FBR0gsbUJBQWE7QUFDYixpQkFEQSxhQUFhLENBQ1osR0FBRyxFQUFFLEdBQUcsRUFBRSxFQUFFLEVBQUM7Z0NBRGQsYUFBYTs7QUFFdEIsY0FBSSxDQUFDLEdBQUcsR0FBRyxHQUFHLENBQUM7QUFDZixjQUFJLENBQUMsR0FBRyxHQUFHLEdBQUcsQ0FBQztBQUNmLGNBQUksQ0FBQyxFQUFFLEdBQUcsRUFBRSxDQUFDO1NBQ2Q7O3FCQUxVLGFBQWE7O2lCQU9oQixrQkFBQyxNQUFNLEVBQUUsRUFBRSxFQUFFLE1BQU0sRUFBQzs7O0FBQzFCLG1CQUFPLElBQUksQ0FBQyxHQUFHLENBQUMsaUJBQWlCLENBQUMsTUFBTSxDQUFDLEVBQUUsQ0FBQyxDQUFDLElBQUksQ0FBQyxVQUFBLE9BQU8sRUFBSTtBQUMzRCxvQkFBSyxPQUFPLEdBQUcsT0FBTyxDQUFDO0FBQ3ZCLG9CQUFNLENBQUMsUUFBUSxDQUFDLEtBQUssR0FBRyxPQUFPLENBQUMsU0FBUyxDQUFDO0FBQzFDLG9CQUFLLGVBQWUsR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQztBQUMzRCxvQkFBSyxFQUFFLENBQUMsT0FBTyxDQUFDLElBQUksYUFBYSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUM7YUFDN0MsQ0FBQyxDQUFDO1dBQ0o7OztlQUVVLFlBQUU7QUFDWCxtQkFBTyxJQUFJLENBQUMsT0FBTyxDQUFDLFNBQVMsSUFBSSxJQUFJLENBQUMsT0FBTyxDQUFDLFFBQVEsSUFBSSxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsWUFBWSxDQUFDO1dBQ2xGOzs7aUJBRUcsZ0JBQUU7OztBQUNKLGdCQUFJLENBQUMsR0FBRyxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLENBQUMsSUFBSSxDQUFDLFVBQUEsT0FBTyxFQUFJO0FBQ2pELHFCQUFLLE9BQU8sR0FBRyxPQUFPLENBQUM7QUFDdkIscUJBQUssZUFBZSxHQUFHLElBQUksQ0FBQyxLQUFLLENBQUMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDO0FBQzNELHFCQUFLLEVBQUUsQ0FBQyxPQUFPLENBQUMsSUFBSSxjQUFjLENBQUMsT0FBSyxPQUFPLENBQUMsQ0FBQyxDQUFDO2FBQ25ELENBQUMsQ0FBQztXQUNKOzs7aUJBRVkseUJBQUU7QUFDYixnQkFBRyxDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsZUFBZSxFQUFFLElBQUksQ0FBQyxPQUFPLENBQUMsRUFBQztBQUMvQyxrQkFBSSxNQUFNLEdBQUcsT0FBTyxDQUFDLDJEQUEyRCxDQUFDLENBQUM7O0FBRWxGLGtCQUFHLENBQUMsTUFBTSxFQUFDO0FBQ1Qsb0JBQUksQ0FBQyxFQUFFLENBQUMsT0FBTyxDQUFDLElBQUksYUFBYSxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDO2VBQ2xEOztBQUVELHFCQUFPLE1BQU0sQ0FBQzthQUNmOztBQUVELG1CQUFPLElBQUksQ0FBQztXQUNiOzs7aUNBeENVLGFBQWEsR0FEekIsTUFBTSxDQUFDLEdBQUcsRUFBRSxNQUFNLEVBQUUsZUFBZSxDQUFDLENBQ3hCLGFBQWEsS0FBYixhQUFhOztlQUFiLGFBQWE7OzsrQkFBYixhQUFhIiwiZmlsZSI6ImNvbnRhY3QtZGV0YWlsLmpzIiwic291cmNlUm9vdCI6Ii9zcmMvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbnRhY3QtZGV0YWlsLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7dUdBS2EsYUFBYTs7OztnREFMbEIsZUFBZTs7dUJBQ2YsTUFBTTs7aUNBQ04sY0FBYztnQ0FBQyxhQUFhOzswQkFDNUIsUUFBUTs7Ozs7Ozs7O0FBRUgsbUJBQWE7QUFFYixpQkFGQSxhQUFhLENBRVosR0FBRyxFQUFFLEVBQUUsRUFBQztnQ0FGVCxhQUFhOztBQUd0QixjQUFJLENBQUMsR0FBRyxHQUFHLEdBQUcsQ0FBQztBQUNmLGNBQUksQ0FBQyxFQUFFLEdBQUcsRUFBRSxDQUFDO1NBQ2Q7O3FCQUxVLGFBQWE7O2lCQU9oQixrQkFBQyxNQUFNLEVBQUUsTUFBTSxFQUFDOzs7QUFDdEIsbUJBQU8sSUFBSSxDQUFDLEdBQUcsQ0FBQyxpQkFBaUIsQ0FBQyxNQUFNLENBQUMsRUFBRSxDQUFDLENBQUMsSUFBSSxDQUFDLFVBQUEsT0FBTyxFQUFJO0FBQzNELG9CQUFLLE9BQU8sR0FBRyxPQUFPLENBQUM7QUFDdkIsb0JBQU0sQ0FBQyxRQUFRLENBQUMsUUFBUSxDQUFDLE9BQU8sQ0FBQyxTQUFTLENBQUMsQ0FBQztBQUM1QyxvQkFBSyxlQUFlLEdBQUcsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUM7QUFDM0Qsb0JBQUssRUFBRSxDQUFDLE9BQU8sQ0FBQyxJQUFJLGFBQWEsQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDO2FBQzdDLENBQUMsQ0FBQztXQUNKOzs7ZUFFVSxZQUFFO0FBQ1gsbUJBQU8sSUFBSSxDQUFDLE9BQU8sQ0FBQyxTQUFTLElBQUksSUFBSSxDQUFDLE9BQU8sQ0FBQyxRQUFRLElBQUksQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLFlBQVksQ0FBQztXQUNsRjs7O2lCQUVHLGdCQUFFOzs7QUFDSixnQkFBSSxDQUFDLEdBQUcsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxDQUFDLElBQUksQ0FBQyxVQUFBLE9BQU8sRUFBSTtBQUNqRCxxQkFBSyxPQUFPLEdBQUcsT0FBTyxDQUFDO0FBQ3ZCLHFCQUFLLGVBQWUsR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQztBQUMzRCxxQkFBSyxFQUFFLENBQUMsT0FBTyxDQUFDLElBQUksY0FBYyxDQUFDLE9BQUssT0FBTyxDQUFDLENBQUMsQ0FBQzthQUNuRCxDQUFDLENBQUM7V0FDSjs7O2lCQUVZLHlCQUFFO0FBQ2IsZ0JBQUcsQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLGVBQWUsRUFBRSxJQUFJLENBQUMsT0FBTyxDQUFDLEVBQUM7QUFDL0Msa0JBQUksTUFBTSxHQUFHLE9BQU8sQ0FBQywyREFBMkQsQ0FBQyxDQUFDOztBQUVsRixrQkFBRyxDQUFDLE1BQU0sRUFBQztBQUNULG9CQUFJLENBQUMsRUFBRSxDQUFDLE9BQU8sQ0FBQyxJQUFJLGFBQWEsQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQztlQUNsRDs7QUFFRCxxQkFBTyxNQUFNLENBQUM7YUFDZjs7QUFFRCxtQkFBTyxJQUFJLENBQUM7V0FDYjs7O2lCQXZDZSxDQUFDLE1BQU0sRUFBRSxlQUFlLENBQUM7Ozs7ZUFEOUIsYUFBYTs7OytCQUFiLGFBQWEiLCJmaWxlIjoiY29udGFjdC1kZXRhaWwuanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==

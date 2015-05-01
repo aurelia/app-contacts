@@ -1,12 +1,8 @@
-System.register(['aurelia-framework', 'aurelia-router', './web-api'], function (_export) {
-  var inject, Router, WebAPI, _classCallCheck, App;
+System.register(['./web-api'], function (_export) {
+  var WebAPI, _classCallCheck, _createClass, App;
 
   return {
-    setters: [function (_aureliaFramework) {
-      inject = _aureliaFramework.inject;
-    }, function (_aureliaRouter) {
-      Router = _aureliaRouter.Router;
-    }, function (_webApi) {
+    setters: [function (_webApi) {
       WebAPI = _webApi.WebAPI;
     }],
     execute: function () {
@@ -14,20 +10,28 @@ System.register(['aurelia-framework', 'aurelia-router', './web-api'], function (
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
 
+      _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
       App = (function () {
-        function App(router, api) {
+        function App(api) {
           _classCallCheck(this, App);
 
-          this.router = router;
           this.api = api;
-
-          this.router.configure(function (config) {
-            config.title = 'Contacts';
-            config.map([{ route: '', moduleId: 'no-selection', title: 'Select' }, { route: 'contacts/:id', moduleId: 'contact-detail' }]);
-          });
         }
 
-        _export('App', App = inject(Router, WebAPI)(App) || App);
+        _createClass(App, [{
+          key: 'configureRouter',
+          value: function configureRouter(config, router) {
+            config.title = 'Contacts';
+            config.map([{ route: '', moduleId: 'no-selection', title: 'Select' }, { route: 'contacts/:id', moduleId: 'contact-detail' }]);
+
+            this.router = router;
+          }
+        }], [{
+          key: 'inject',
+          value: [WebAPI],
+          enumerable: true
+        }]);
 
         return App;
       })();
@@ -36,4 +40,4 @@ System.register(['aurelia-framework', 'aurelia-router', './web-api'], function (
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOytDQUthLEdBQUc7Ozs7aUNBTFIsTUFBTTs7OEJBQ04sTUFBTTs7dUJBQ04sTUFBTTs7Ozs7OztBQUdELFNBQUc7QUFDSCxpQkFEQSxHQUFHLENBQ0YsTUFBTSxFQUFFLEdBQUcsRUFBRTtnQ0FEZCxHQUFHOztBQUVaLGNBQUksQ0FBQyxNQUFNLEdBQUcsTUFBTSxDQUFDO0FBQ3JCLGNBQUksQ0FBQyxHQUFHLEdBQUcsR0FBRyxDQUFDOztBQUVmLGNBQUksQ0FBQyxNQUFNLENBQUMsU0FBUyxDQUFDLFVBQUEsTUFBTSxFQUFJO0FBQzlCLGtCQUFNLENBQUMsS0FBSyxHQUFHLFVBQVUsQ0FBQztBQUMxQixrQkFBTSxDQUFDLEdBQUcsQ0FBQyxDQUNULEVBQUUsS0FBSyxFQUFFLEVBQUUsRUFBZSxRQUFRLEVBQUUsY0FBYyxFQUFJLEtBQUssRUFBRSxRQUFRLEVBQUMsRUFDdEUsRUFBRSxLQUFLLEVBQUUsY0FBYyxFQUFHLFFBQVEsRUFBRSxnQkFBZ0IsRUFBRSxDQUN2RCxDQUFDLENBQUM7V0FDSixDQUFDLENBQUM7U0FDSjs7dUJBWlUsR0FBRyxHQURmLE1BQU0sQ0FBQyxNQUFNLEVBQUUsTUFBTSxDQUFDLENBQ1YsR0FBRyxLQUFILEdBQUc7O2VBQUgsR0FBRzs7O3FCQUFILEdBQUciLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6Ii9zcmMvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzZDQUVhLEdBQUc7Ozs7dUJBRlIsTUFBTTs7Ozs7Ozs7O0FBRUQsU0FBRztBQUVILGlCQUZBLEdBQUcsQ0FFRixHQUFHLEVBQUU7Z0NBRk4sR0FBRzs7QUFHWixjQUFJLENBQUMsR0FBRyxHQUFHLEdBQUcsQ0FBQztTQUNoQjs7cUJBSlUsR0FBRzs7aUJBTUMseUJBQUMsTUFBTSxFQUFFLE1BQU0sRUFBQztBQUM3QixrQkFBTSxDQUFDLEtBQUssR0FBRyxVQUFVLENBQUM7QUFDMUIsa0JBQU0sQ0FBQyxHQUFHLENBQUMsQ0FDVCxFQUFFLEtBQUssRUFBRSxFQUFFLEVBQWUsUUFBUSxFQUFFLGNBQWMsRUFBSSxLQUFLLEVBQUUsUUFBUSxFQUFDLEVBQ3RFLEVBQUUsS0FBSyxFQUFFLGNBQWMsRUFBRyxRQUFRLEVBQUUsZ0JBQWdCLEVBQUUsQ0FDdkQsQ0FBQyxDQUFDOztBQUVILGdCQUFJLENBQUMsTUFBTSxHQUFHLE1BQU0sQ0FBQztXQUN0Qjs7O2lCQWJlLENBQUMsTUFBTSxDQUFDOzs7O2VBRGIsR0FBRzs7O3FCQUFILEdBQUciLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6Ii9zcmMvIn0=

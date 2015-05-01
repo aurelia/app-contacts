@@ -1,5 +1,5 @@
 System.register(['nprogress', 'aurelia-framework'], function (_export) {
-  var nprogress, bindable, noView, _classCallCheck, _createDecoratedClass, LoadingIndicator;
+  var nprogress, bindable, noView, _classCallCheck, _createDecoratedClass, _defineDecoratedPropertyDescriptor, LoadingIndicator;
 
   return {
     setters: [function (_nprogress) {
@@ -13,24 +13,28 @@ System.register(['nprogress', 'aurelia-framework'], function (_export) {
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
 
-      _createDecoratedClass = (function () { function defineProperties(target, descriptors, initializers) { for (var i = 0; i < descriptors.length; i++) { var descriptor = descriptors[i]; var decorators = descriptor.decorators; var key = descriptor.key; delete descriptor.key; delete descriptor.decorators; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor || descriptor.initializer) descriptor.writable = true; if (decorators) { for (var f = 0; f < decorators.length; f++) { var decorator = decorators[f]; if (typeof decorator === 'function') { descriptor = decorator(target, key, descriptor) || descriptor; } else { throw new TypeError('The decorator for method ' + descriptor.key + ' is of the invalid type ' + typeof decorator); } } if (initializers) initializers[key] = descriptor.initializer; } Object.defineProperty(target, key, descriptor); } } return function (Constructor, protoProps, staticProps, protoInitializers, staticInitializers) { if (protoProps) defineProperties(Constructor.prototype, protoProps, protoInitializers); if (staticProps) defineProperties(Constructor, staticProps, staticInitializers); return Constructor; }; })();
+      _createDecoratedClass = (function () { function defineProperties(target, descriptors, initializers) { for (var i = 0; i < descriptors.length; i++) { var descriptor = descriptors[i]; var decorators = descriptor.decorators; var key = descriptor.key; delete descriptor.key; delete descriptor.decorators; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor || descriptor.initializer) descriptor.writable = true; if (decorators) { for (var f = 0; f < decorators.length; f++) { var decorator = decorators[f]; if (typeof decorator === 'function') { descriptor = decorator(target, key, descriptor) || descriptor; } else { throw new TypeError('The decorator for method ' + descriptor.key + ' is of the invalid type ' + typeof decorator); } } if (descriptor.initializer) { initializers[key] = descriptor; continue; } } Object.defineProperty(target, key, descriptor); } } return function (Constructor, protoProps, staticProps, protoInitializers, staticInitializers) { if (protoProps) defineProperties(Constructor.prototype, protoProps, protoInitializers); if (staticProps) defineProperties(Constructor, staticProps, staticInitializers); return Constructor; }; })();
+
+      _defineDecoratedPropertyDescriptor = function (target, key, descriptors) { var _descriptor = descriptors[key]; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer(); Object.defineProperty(target, key, descriptor); };
 
       LoadingIndicator = (function () {
         var _instanceInitializers = {};
 
         function LoadingIndicator() {
-          _classCallCheck(this, LoadingIndicator);
+          _classCallCheck(this, _LoadingIndicator);
 
-          this.loading = _instanceInitializers.loading.call(this);
+          _defineDecoratedPropertyDescriptor(this, 'loading', _instanceInitializers);
         }
 
-        _createDecoratedClass(LoadingIndicator, [{
+        var _LoadingIndicator = LoadingIndicator;
+
+        _createDecoratedClass(_LoadingIndicator, [{
           key: 'loading',
-          enumerable: true,
           decorators: [bindable],
           initializer: function () {
             return false;
-          }
+          },
+          enumerable: true
         }, {
           key: 'loadingChanged',
           value: function loadingChanged(newValue) {
@@ -42,8 +46,7 @@ System.register(['nprogress', 'aurelia-framework'], function (_export) {
           }
         }], null, _instanceInitializers);
 
-        _export('LoadingIndicator', LoadingIndicator = noView(LoadingIndicator) || LoadingIndicator);
-
+        LoadingIndicator = noView(LoadingIndicator) || LoadingIndicator;
         return LoadingIndicator;
       })();
 
@@ -51,4 +54,4 @@ System.register(['nprogress', 'aurelia-framework'], function (_export) {
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxvYWRpbmctaW5kaWNhdG9yLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7MkVBSWEsZ0JBQWdCOzs7Ozs7bUNBSHJCLFFBQVE7aUNBQUUsTUFBTTs7Ozs7Ozs7O0FBR1gsc0JBQWdCOzs7aUJBQWhCLGdCQUFnQjtnQ0FBaEIsZ0JBQWdCOztlQUNqQixPQUFPLHlCQUFQLE9BQU87Ozs4QkFETixnQkFBZ0I7Ozt1QkFDMUIsUUFBUTs7bUJBQVcsS0FBSzs7OztpQkFFWCx3QkFBQyxRQUFRLEVBQUM7QUFDdEIsZ0JBQUcsUUFBUSxFQUFDO0FBQ1YsdUJBQVMsQ0FBQyxLQUFLLEVBQUUsQ0FBQzthQUNuQixNQUFJO0FBQ0gsdUJBQVMsQ0FBQyxJQUFJLEVBQUUsQ0FBQzthQUNsQjtXQUNGOzs7b0NBVFUsZ0JBQWdCLEdBRDVCLE1BQU0sQ0FDTSxnQkFBZ0IsS0FBaEIsZ0JBQWdCOztlQUFoQixnQkFBZ0I7OztrQ0FBaEIsZ0JBQWdCIiwiZmlsZSI6ImxvYWRpbmctaW5kaWNhdG9yLmpzIiwic291cmNlUm9vdCI6Ii9zcmMvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxvYWRpbmctaW5kaWNhdG9yLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7K0dBSWEsZ0JBQWdCOzs7Ozs7bUNBSHJCLFFBQVE7aUNBQUUsTUFBTTs7Ozs7Ozs7Ozs7QUFHWCxzQkFBZ0I7OztpQkFBaEIsZ0JBQWdCOzs7Ozs7Z0NBQWhCLGdCQUFnQjs7Ozt1QkFDMUIsUUFBUTs7bUJBQVcsS0FBSzs7Ozs7aUJBRVgsd0JBQUMsUUFBUSxFQUFDO0FBQ3RCLGdCQUFHLFFBQVEsRUFBQztBQUNWLHVCQUFTLENBQUMsS0FBSyxFQUFFLENBQUM7YUFDbkIsTUFBSTtBQUNILHVCQUFTLENBQUMsSUFBSSxFQUFFLENBQUM7YUFDbEI7V0FDRjs7O0FBVFUsd0JBQWdCLEdBRDVCLE1BQU0sQ0FDTSxnQkFBZ0IsS0FBaEIsZ0JBQWdCO2VBQWhCLGdCQUFnQjs7O2tDQUFoQixnQkFBZ0IiLCJmaWxlIjoibG9hZGluZy1pbmRpY2F0b3IuanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==
