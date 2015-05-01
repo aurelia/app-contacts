@@ -1,5 +1,8 @@
 import {WebAPI} from './web-api';
 
+import 'bootstrap';
+import 'bootstrap/css/bootstrap.css!';
+
 export class App {
   static inject = [WebAPI];
   constructor(api) {
