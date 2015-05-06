@@ -11,9 +11,11 @@
     </div>
   </nav>
 
-  <div class="page-host">
+  <div class="container">
     <loading-indicator loading.bind="router.isNavigating || api.isRequesting"></loading-indicator>
-    <contact-list></contact-list>
-    <router-view></router-view>
+    <div class="row">
+      <contact-list class="col-md-4"></contact-list>
+      <router-view class="col-md-8"></router-view>
+    </div>
   </div>
 </template>
