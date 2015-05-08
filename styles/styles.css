@@ -18,7 +18,7 @@
     margin-top: 50px;
 }
 
-.page-host {
+/*.page-host {
   position: absolute;
   left: 0;
   right: 0;
@@ -26,7 +26,9 @@
   bottom: 0;
   overflow-x: hidden;
   overflow-y: hidden;
-}
+}*/
+
+body { padding-top: 70px; }
 
 section {
   margin: 0 20px;
@@ -46,21 +48,8 @@ a:focus {
 
 .contact-list {
   overflow-y: auto;
-  width: 300px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
   border: 1px solid #ddd;
   padding: 10px;
-}
-
-router-view {
-  position: absolute;
-  top: 0;
-  left: 300px;
-  bottom: 0;
-  right: 0;
 }
 
 .panel {
@@ -68,17 +57,16 @@ router-view {
 }
 
 .button-bar {
-  position: absolute;
   right: 0;
   left: 0;
   bottom: 0;
   border-top: 1px solid #ddd;
-  padding: 10px;
   background: white;
 }
 
 .button-bar > button {
   float: right;
+  margin: 20px;
 }
 
 li.list-group-item {
