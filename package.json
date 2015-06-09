@@ -1,6 +1,6 @@
 {
   "name": "app-contacts",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A sample app that lets you browse and edit contacts.",
   "keywords": [
     "aurelia",
@@ -46,8 +46,8 @@
   },
   "jspm": {
     "dependencies": {
-      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.12.0",
-      "aurelia-event-aggregator": "github:aurelia/event-aggregator@^0.4.0",
+      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.13.0",
+      "aurelia-event-aggregator": "github:aurelia/event-aggregator@^0.5.0",
       "bootstrap": "github:twbs/bootstrap@^3.3.4",
       "css": "github:systemjs/plugin-css@^0.1.9",
       "font-awesome": "npm:font-awesome@^4.3.0",

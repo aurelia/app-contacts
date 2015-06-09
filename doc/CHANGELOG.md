@@ -1,3 +1,15 @@
+### 0.2.1 (2015-06-09)
+
+
+#### Bug Fixes
+
+* **app:** update routing config to match changes in router ([08f5ee07](http://github.com/aurelia/app-contacts/commit/08f5ee0791c807e54ca7775ba9184840e2e5416b))
+* **gitignore:**
+  * removal of dist folder items that are now ignored by git ([d34df2bd](http://github.com/aurelia/app-contacts/commit/d34df2bdbe0cec421f466487ee8e8d0320f58e12))
+  * ignore dist folder ([02e39417](http://github.com/aurelia/app-contacts/commit/02e39417a10c23aa13b04234448c29efa6f9c4be))
+* **style:** improve mobile interface ([64125533](http://github.com/aurelia/app-contacts/commit/641255332161bee1b98dd602354ade100a75f5c9))
+
+
 ## 0.2.0 (2015-05-01)
 
 
