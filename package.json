@@ -55,7 +55,7 @@
     "dependencies": {
       "aurelia-animator-css": "github:aurelia/animator-css@^0.16.0",
       "aurelia-binding": "github:aurelia/binding@^0.9.1",
-      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.17.0",
+      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.18.0",
       "aurelia-dependency-injection": "github:aurelia/dependency-injection@^0.10.1",
       "aurelia-event-aggregator": "github:aurelia/event-aggregator@^0.8.0",
       "aurelia-framework": "github:aurelia/framework@^0.16.0",
