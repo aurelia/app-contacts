@@ -10,10 +10,12 @@ export class ContactDetail {
     this.ea = ea;
   }
 
-  activate(params, config){
+  activate(params, routeConfig){
+    this.routeConfig = routeConfig;
+    
     return this.api.getContactDetails(params.id).then(contact => {
       this.contact = contact;
-      config.navModel.setTitle(contact.firstName);
+      this.routeConfig.navModel.setTitle(contact.firstName);
       this.originalContact = JSON.parse(JSON.stringify(contact));
       this.ea.publish(new ContactViewed(contact));
     });
@@ -26,6 +28,7 @@ export class ContactDetail {
   save(){
     this.api.saveContact(this.contact).then(contact => {
       this.contact = contact;
+      this.routeConfig.navModel.setTitle(contact.firstName);
       this.originalContact = JSON.parse(JSON.stringify(contact));
       this.ea.publish(new ContactUpdated(this.contact));
     });
