@@ -8,9 +8,9 @@ var args = require('../args');
 
 // utilizes the bump plugin to bump the
 // semver for the repo
-gulp.task('bump-version', function(){
+gulp.task('bump-version', function() {
   return gulp.src(['./package.json'])
-    .pipe(bump({type:args.bump })) //major|minor|patch|prerelease
+    .pipe(bump({type: args.bump})) //major|minor|patch|prerelease
     .pipe(gulp.dest('./'));
 });
 
@@ -29,12 +29,11 @@ gulp.task('changelog', function(callback) {
 });
 
 // calls the listed sequence of tasks in order
-gulp.task('prepare-release', function(callback){
+gulp.task('prepare-release', function(callback) {
   return runSequence(
     'build',
     'lint',
     'bump-version',
-    'doc',
     'changelog',
     callback
   );

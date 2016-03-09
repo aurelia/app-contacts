@@ -1,6 +1,4 @@
 import {WebAPI} from './web-api';
-import 'bootstrap/css/bootstrap.css!';
-import 'font-awesome/css/font-awesome.css!';
 
 export class App {
   static inject = [WebAPI];
