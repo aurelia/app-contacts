@@ -2,6 +2,7 @@ import {WebAPI} from './web-api';
 
 export class App {
   static inject = [WebAPI];
+  
   constructor(api) {
     this.api = api;
   }

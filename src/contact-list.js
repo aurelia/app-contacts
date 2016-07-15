@@ -4,6 +4,7 @@ import {ContactUpdated, ContactViewed} from './messages';
 
 export class ContactList {
   static inject = [WebAPI, EventAggregator];
+
   constructor(api, ea){
     this.api = api;
     this.contacts = [];
@@ -17,9 +18,7 @@ export class ContactList {
   }
 
   created(){
-    this.api.getContactList().then(contacts => {
-      this.contacts = contacts;
-    });
+    this.api.getContactList().then(contacts => this.contacts = contacts);
   }
 
   select(contact){
