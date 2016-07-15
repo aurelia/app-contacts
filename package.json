@@ -1,16 +1,19 @@
 {
   "name": "app-contacts",
-  "description": "An Aurelia client application.",
+  "description": "An simple Aurelia contact manager sample application.",
   "version": "0.1.0",
   "repository": {
-    "type": "???",
-    "url": "???"
+    "type": "git",
+    "url": "https://github.com/aurelia/app-contacts"
   },
-  "license": "MIT",
+  "homepage": "http://aurelia.io",
+  "bugs": {
+    "url": "https://github.com/aurelia/binding/issues"
+  },
+  "license": "CC0-1.0",
+  "author": "Rob Eisenberg <rob@bluespire.com> (http://robeisenberg.com/)",
   "dependencies": {
-    "aurelia-animator-css": "^1.0.0-rc.1.0.0",
     "aurelia-bootstrapper": "^1.0.0-rc.1.0.0",
-    "aurelia-fetch-client": "^1.0.0-rc.1.0.0",
     "bluebird": "^3.4.1",
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.4",
