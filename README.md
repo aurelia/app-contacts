@@ -9,7 +9,7 @@ An [Aurelia](http://www.aurelia.io/) sample app that lets you browse and edit co
 
 ## Machine Setup
 
-This app is built on the Aurelia CLI (>= 0.16.0), which has a couple of prerequisites you must install first. If you have previously setup your machine for the Aurelia CLI, you can skip this step.
+This app is built on the Aurelia CLI, which has a couple of prerequisites you must install first. If you have previously setup your machine for the Aurelia CLI, you can skip this step.
 
 * Install NodeJS >= 4.x
     * You can [download it here](https://nodejs.org/en/).
