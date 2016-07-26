@@ -12,7 +12,7 @@ export class ContactList {
     ea.subscribe(ContactViewed, msg => this.select(msg.contact));
     ea.subscribe(ContactUpdated, msg => {
       let id = msg.contact.id;
-      let found = this.contacts.filter(x => x.id == id)[0];
+      let found = this.contacts.find(x => x.id == id);
       Object.assign(found, msg.contact);
     });
   }
