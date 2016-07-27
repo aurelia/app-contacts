@@ -1,7 +1,7 @@
 {
   "name": "app-contacts",
   "description": "An simple Aurelia contact manager sample application.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/aurelia/app-contacts"
