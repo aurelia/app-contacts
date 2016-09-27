@@ -113,7 +113,6 @@
           "aurelia-task-queue",
           "aurelia-templating",
           "aurelia-templating-binding",
-          "nprogress",
           "jquery",
           {
             "name": "bootstrap",
