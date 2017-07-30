@@ -40,11 +40,11 @@
   },
   "paths": {
     "root": "src",
-    "resources": "src/resources",
-    "elements": "src/resources/elements",
-    "attributes": "src/resources/attributes",
-    "valueConverters": "src/resources/value-converters",
-    "bindingBehaviors": "src/resources/binding-behaviors"
+    "resources": "resources",
+    "elements": "resources/elements",
+    "attributes": "resources/attributes",
+    "valueConverters": "resources/value-converters",
+    "bindingBehaviors": "resources/binding-behaviors"
   },
   "testFramework": {
     "id": "jasmine",
@@ -134,7 +134,8 @@
           },
           {
             "name": "text",
-            "path": "../scripts/text"
+            "path": "../scripts/text",
+            "packageRoot": "../scripts"
           },
           {
             "name": "aurelia-templating-resources",
